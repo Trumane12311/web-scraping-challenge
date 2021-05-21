@@ -15,20 +15,18 @@
     <h1 class="jumbotron">Mission to Mars 
     <br><a href="/scrape" <button type="button" class="btn btn-danger">Scrape New Data</button></a>
     </h1>
-      
     <h3 class="header-left">Latest Mars News</h3>
       <strong>{{ mars_data.news_title }}</strong><br>
         {{ mars_data.news_paragraph}}
         <hr>
-          <br>
             <div class="row">
                 <div class="col-md-8">
-                    <h3 class="header-left">Featured Mars Image</h3>
+                    <h3>Featured Mars Image</h3>
                       <img src="{{ mars_data.featured_image_url | default('static/images/error.png', true) }}" class="img-responsive" alt="Featured Image">
                 </div>
                 <div class="col-md-4">
-                    <h4 class="header-left">Mars Facts</h4>
-                      <table class="table">{{ mars_data.mars_t_html | safe}}
+                    <h3>Mars Facts</h3>
+                      <table>{{ mars_data.mars_t_html | safe}}
                       </table>
                 </div>
             </div>
