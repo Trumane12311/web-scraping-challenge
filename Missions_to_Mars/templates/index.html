@@ -6,23 +6,25 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Mission to Mars</title>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-  <div class="jumbotron" id="home">
-    <div class="container" style="background-color:light-gray">
-      <h1 class="display-4">Mission to Mars</h1>
-    <hr class="my-4">
-    <p class="lead">Use the "Scrape Mars Data" button to update content.</p>
-    <p class="lead">
-      <a href="/scrape" <button type="button" class="btn btn-danger">Scrape New Data</button></a>
-    </div>
-    </div>
+  <div class="h-100 p-5 text-white bg-dark rounded-3">
+      <h1 style="text-align: center">Mission to Mars</h1>
+        <hr>
+        <p style="text-align: center">Use the "Scrape New Data" button to retrieve the latest mars news, featured image, mars facts, and hemisphere images.</p>
+          <div class="container">
+            <div style="text-align: center">
+          <a href="/scrape" <button class="btn btn-outline-danger" type="button">Scrape New Data</button></a>
+        </div>
+        </div>
+        </div>
+        <br>
     <div class="container">
-    <h3 class="header-left">Latest Mars News</h3>
+    <<h3 class="header-left">Latest Mars News</h3>
       <strong>{{ mars_data.news_title }}</strong><br>
         {{ mars_data.news_paragraph}}
         <hr></div>
@@ -30,19 +32,19 @@
             <div class="row">
                 <div class="col-md-8">
                     <h3>Featured Mars Image</h3>
-                      <img src="{{ mars_data.featured_image_url | default('static/images/error.png', true) }}" class="img-responsive" alt="Featured Image"></div>
-              <div class="row">
+                      <img src="{{ mars_data.featured_image_url | default('static/images/error.png', true) }}" class="img-responsive" alt="Featured Image">
+                    </div>
                 <div class="col-md-4">
-                    <h4>Mars Facts</h4>
+                    <h5>Mars Facts</h5>
                       <table>{{ mars_data.mars_t_html | safe}}
                       </table>
                 </div>
             </div>
-        <div class="container">
             <div class="row">
                 <div class="col-lg-12">
                 <br>
-                    <h3 class="header-center">Mars Hemispheres</h3>
+                <br>
+                    <h2 class="header-center">Mars Hemispheres</h2>
                     <hr>
                     <div class="row">
                       <div class="col-md-3">
@@ -67,4 +69,5 @@
         </div>
 </body>
 
+<footer></footer>
 </html>
