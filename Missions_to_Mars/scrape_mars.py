@@ -51,7 +51,7 @@ def scrape():
 
     #Scrape featured image
     image_url = soup.find('img', class_='headerimage fade-in')['src']
-    featured_image_url = print(f'https://spaceimages-mars.com/{image_url}')
+    featured_image_url = f'{url}/{image_url}'
     featured_image_url
 
     mars['featured_image_url'] = featured_image_url
@@ -75,16 +75,19 @@ def scrape():
     mars_facts
 
 
-    mars_facts_table = mars_facts.rename(columns={'Mars - Earth Comparison': 'Facts'})
+    mars_facts_table = mars_facts.rename(columns={'Mars - Earth Comparison': ''})
     mars_facts_table
 
 
-    mars_table = mars_facts_table[['Facts','Mars']].reset_index(drop=True)
+    mars_table = mars_facts_table[['','Mars']].reset_index(drop=True)
     mars_table
 
+    mars_t = mars_table.set_index('')
+    mars_t
 
+    mars_t_html = mars_t.to_html(classes=["table-bordered", "table-striped", "table-hover"])
+    mars_t_html
 
-    mars_t_html = mars_table.to_html()
     mars['mars_t_html'] = mars_t_html
 
 
@@ -102,7 +105,7 @@ def scrape():
     mars_h1_title = soup.find('h2', class_='title').text
 
     mars_h1 = soup.find('img', class_='wide-image')['src']
-    mars_h1_img = 'https://spaceimages-mars.com/' + mars_h1 
+    mars_h1_img = f'{url}{mars_h1}' 
 
 
 
@@ -118,7 +121,7 @@ def scrape():
     mars_h2_title = soup.find('h2', class_='title').text
 
     mars_h2 = soup.find('img', class_='wide-image')['src']
-    mars_h2_img = 'https://spaceimages-mars.com/' + mars_h2 
+    mars_h2_img = f'{url}{mars_h2}' 
 
 
 
@@ -134,7 +137,7 @@ def scrape():
     mars_h3_title = soup.find('h2', class_='title').text
 
     mars_h3 = soup.find('img', class_='wide-image')['src']
-    mars_h3_img = 'https://spaceimages-mars.com/' + mars_h3 
+    mars_h3_img = f'{url}{mars_h3}' 
 
 
 
@@ -150,15 +153,15 @@ def scrape():
     mars_h4_title = soup.find('h2', class_='title').text
 
     mars_h4 = soup.find('img', class_='wide-image')['src']
-    mars_h4_img = 'https://spaceimages-mars.com/' + mars_h4 
+    mars_h4_img = f'{url}{mars_h4}'  
 
 
 
     mars_hemispheres_imgs = [
-        {"title": mars_h1_title, "img_url": mars_h1_img},
-        {"title": mars_h2_title, "img_url": mars_h2_img},
-        {"title": mars_h3_title, "img_url": mars_h3_img},
-        {"title": mars_h4_title, "img_url": mars_h4_img}]
+        {"title": mars_h1_title, "link": mars_h1_img},
+        {"title": mars_h2_title, "link": mars_h2_img},
+        {"title": mars_h3_title, "link": mars_h3_img},
+        {"title": mars_h4_title, "link": mars_h4_img}]
     
     mars_hemispheres_imgs
 
