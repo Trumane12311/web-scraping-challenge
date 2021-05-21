@@ -12,3 +12,8 @@ table {
     text-align: center;
 }
 
+#home{
+    background-image: url('../img/jumbotron-bkg-2.jpg');
+    margin-top: 50px;
+    text-align: center;
+  }

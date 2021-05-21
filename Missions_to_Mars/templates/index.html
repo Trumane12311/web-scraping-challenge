@@ -6,26 +6,34 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Mission to Mars</title>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-  <div class="container text-center">
-    <h1 class="jumbotron">Mission to Mars 
-    <br><a href="/scrape" <button type="button" class="btn btn-danger">Scrape New Data</button></a>
-    </h1>
+  <div class="jumbotron" id="home">
+    <div class="container" style="background-color:light-gray">
+      <h1 class="display-4">Mission to Mars</h1>
+    <hr class="my-4">
+    <p class="lead">Use the "Scrape Mars Data" button to update content.</p>
+    <p class="lead">
+      <a href="/scrape" <button type="button" class="btn btn-danger">Scrape New Data</button></a>
+    </div>
+    </div>
+    <div class="container">
     <h3 class="header-left">Latest Mars News</h3>
       <strong>{{ mars_data.news_title }}</strong><br>
         {{ mars_data.news_paragraph}}
-        <hr>
+        <hr></div>
+        <div class="container">
             <div class="row">
                 <div class="col-md-8">
                     <h3>Featured Mars Image</h3>
-                      <img src="{{ mars_data.featured_image_url | default('static/images/error.png', true) }}" class="img-responsive" alt="Featured Image">
-                </div>
+                      <img src="{{ mars_data.featured_image_url | default('static/images/error.png', true) }}" class="img-responsive" alt="Featured Image"></div>
+              <div class="row">
                 <div class="col-md-4">
-                    <h3>Mars Facts</h3>
+                    <h4>Mars Facts</h4>
                       <table>{{ mars_data.mars_t_html | safe}}
                       </table>
                 </div>
