@@ -69,26 +69,22 @@ def scrape():
 
 
     mars_facts = all_about_mars[0]
-    mars_facts
 
     mars_facts = mars_facts.rename(columns=mars_facts.iloc[0]).drop(mars_facts.index[0])
-    mars_facts
-
 
     mars_facts_table = mars_facts.rename(columns={'Mars - Earth Comparison': ''})
-    mars_facts_table
 
-
-    mars_table = mars_facts_table[['','Mars']].reset_index(drop=True)
-    mars_table
-
+    mars_table = mars_facts_table[['','Mars','Earth']].reset_index(drop=True)
     mars_t = mars_table.set_index('')
-    mars_t
 
     mars_t_html = mars_t.to_html(classes=["table-bordered", "table-striped", "table-hover"])
-    mars_t_html
 
-    mars['mars_t_html'] = mars_t_html
+    mars_t_html = mars_t.to_html()
+    mars_t_html_class_t = mars_t_html.replace('<table border="1" class="dataframe">\n','<table class="table table-dark table-striped">\n')
+    mars_t_html_class_tr = mars_t_html_class_t.replace('<tr style="text-align: right;">','<tr>')
+    mars_t_html_class_row = mars_t_html_class_tr.replace('<th>','<th scope="row">')
+
+    mars['mars_t_html'] = mars_t_html_class_row
 
 
     # Scraping Mars Hemisphere Images and Titles
