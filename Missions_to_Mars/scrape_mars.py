@@ -77,7 +77,7 @@ def scrape():
     mars_table = mars_facts_table[['','Mars','Earth']].reset_index(drop=True)
     mars_t = mars_table.set_index('')
 
-    mars_t_html = mars_t.to_html(classes=["table-bordered", "table-striped", "table-hover"])
+    mars_t_html = mars_t.to_html()
 
     mars_t_html = mars_t.to_html()
     mars_t_html_class_t = mars_t_html.replace('<table border="1" class="dataframe">\n','<table class="table table-dark table-striped">\n')
